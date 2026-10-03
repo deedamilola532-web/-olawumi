@@ -65,13 +65,15 @@ section{padding:112px 0}
 .ugc h2{max-width:18ch}
 .ugc .intro{margin:22px 0 56px;font-size:19px}
 .reel{display:grid;grid-template-columns:minmax(0,340px) minmax(0,1fr);gap:40px;align-items:start}
-.vid{position:relative;aspect-ratio:var(--r);width:100%;max-height:640px;background:#0a1220 center/cover no-repeat}
-.vid iframe,.vid video{position:absolute;inset:0;width:100%;height:100%;border:0;object-fit:contain;background:#000}
-.play{position:absolute;inset:0;width:100%;border:0;background:rgba(11,21,18,.4);cursor:pointer;display:grid;place-items:center}
-.play span{width:80px;height:80px;border-radius:50%;background:var(--champ);position:relative;transition:transform .25s}
-.play span::after{content:"";position:absolute;left:32px;top:23px;border-left:25px solid var(--ink);border-top:17px solid transparent;border-bottom:17px solid transparent}
-.play:hover span{transform:scale(1.08)}
-.nofile{position:absolute;inset:0;display:grid;place-content:center;justify-items:center;gap:16px;text-align:center;padding:20px}.nofile p{color:#B9CCC4}
+.vwrap{position:relative;aspect-ratio:var(--r);width:100%;max-height:640px;background:var(--ink)}
+.vwrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.vcard{position:absolute;inset:0;width:100%;height:100%;cursor:pointer;font:inherit;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;text-align:center;min-height:0;padding:24px;background:var(--forest2);border:1px solid rgba(217,199,160,.45);text-decoration:none;color:var(--mist);transition:background .3s,border-color .3s}
+.vcard:hover{background:#1D574B;border-color:var(--champ)}
+.vcard strong{font-family:var(--serif);font-weight:400;font-size:clamp(24px,2.6vw,32px);line-height:1.15}
+.vcard em{font-style:normal;font-size:15px;color:var(--champ)}
+.pb{width:84px;height:84px;border-radius:50%;background:var(--champ);display:grid;place-items:center;transition:transform .25s;margin-bottom:10px}
+.pb i{margin-left:6px;border-left:26px solid var(--ink);border-top:17px solid transparent;border-bottom:17px solid transparent}
+.vcard:hover .pb{transform:scale(1.08)}
 figcaption{padding-top:14px;font-size:15px;color:var(--mute)}
 figcaption b{color:var(--ink);font-weight:600}
 .dark figcaption{color:#B9CCC4}.dark figcaption b{color:var(--mist)}
@@ -137,7 +139,7 @@ dialog button{position:fixed;top:14px;right:18px;background:none;border:1px soli
  section{padding:72px 0}.pr,.er,.facts{gap:10px}
  .certs{grid-template-columns:1fr}.gfx{grid-template-columns:1fr 1fr;gap:16px;margin-top:64px}.gfx figure:nth-child(2){margin-top:32px}
  .case,.case.flip{grid-template-columns:1fr;gap:36px;padding:48px 0}.case.flip .ct{order:0}
- .vid{max-height:560px}.nums{gap:32px}
+.nums{gap:32px}
 }
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}.rise{opacity:1;transform:none}}
 </style>
@@ -182,11 +184,11 @@ dialog button{position:fixed;top:14px;right:18px;background:none;border:1px soli
 
 <section id="work" class="ugc dark"><div class="wrap">
  <h2>The idea, made into an ad.</h2>
- <p class="intro">Two AI UGC videos. Press play. One is a cornflakes ad in UGC format. The other is a practice concept for an automobile brand.</p>
+ <p class="intro">Two AI UGC videos. One is a cornflakes ad in UGC format. The other is a practice concept for an automobile brand.</p>
  <div class="reel">
-  <figure><div class="vid" style="--r:9/16" data-id="1pk7UdYbI1HMr1K3jKhp5zs8EdB9jwvQi" data-src="assets/video/cornflakes-ugc.mp4"><button class="play" type="button" aria-label="Play cornflakes UGC ad"><span></span></button></div>
+  <figure><div class="vwrap" style="--r:9/16"><button type="button" class="vcard" data-id="1pk7UdYbI1HMr1K3jKhp5zs8EdB9jwvQi" data-t="Cornflakes UGC ad" aria-label="Play Cornflakes UGC ad"><span class="pb"><i></i></span><strong>Cornflakes UGC ad</strong><em>Click to play</em></button></div>
    <figcaption><b>Cornflakes UGC ad.</b> UGC format, product presentation and script, made with AI tools. <a class="ul" href="https://drive.google.com/file/d/1pk7UdYbI1HMr1K3jKhp5zs8EdB9jwvQi/view?usp=drive_link" target="_blank" rel="noopener">Open in Drive</a></figcaption></figure>
-  <figure><div class="vid" style="--r:16/9" data-id="1-lRh7MJApcz0KexnR2SG2ZLfmylU84hY" data-src="assets/video/kashy-automobile-ad.mp4"><button class="play" type="button" aria-label="Play Kashy automobile ad"><span></span></button></div>
+  <figure><div class="vwrap" style="--r:16/9"><button type="button" class="vcard" data-id="1-lRh7MJApcz0KexnR2SG2ZLfmylU84hY" data-t="Kashy automobile ad" aria-label="Play Kashy automobile ad"><span class="pb"><i></i></span><strong>Kashy automobile ad</strong><em>Click to play</em></button></div>
    <figcaption><span class="badge">Practice project, creative concept</span><br><b>Kashy automobile ad.</b> A self-directed concept, not paid client work. <a class="ul" href="https://drive.google.com/file/d/1-lRh7MJApcz0KexnR2SG2ZLfmylU84hY/view?usp=drive_link" target="_blank" rel="noopener">Open in Drive</a></figcaption></figure>
  </div>
  <div class="gfx">
@@ -266,9 +268,7 @@ dialog button{position:fixed;top:14px;right:18px;background:none;border:1px soli
 const lb=document.getElementById('lb'),li=lb.querySelector('img'),lc=lb.querySelector('p');
 document.addEventListener('click',e=>{const i=e.target.closest('img[data-lb]');if(i){li.src=i.src;li.alt=i.alt;const c=i.closest('figure').querySelector('figcaption');lc.textContent=c?c.textContent:'';lb.showModal()}
 if(e.target===lb||e.target.id==='x'||e.target===li)lb.close()});
-document.querySelectorAll('.vid').forEach(v=>{const id=v.dataset.id;v.style.backgroundImage='url(https://drive.google.com/thumbnail?id='+id+'&sz=w800)';
-v.querySelector('.play').addEventListener('click',()=>{v.style.backgroundImage='none';const drive=()=>{v.style.backgroundImage='none';v.innerHTML='<div class="nofile"><a class="btn" href="https://drive.google.com/file/d/'+id+'/view?usp=drive_link" target="_blank" rel="noopener">Watch on Google Drive</a></div>'};
-const m=document.createElement('video');m.controls=true;m.autoplay=true;m.playsInline=true;m.src=v.dataset.src;m.onerror=drive;v.innerHTML='';v.appendChild(m);const p=m.play();if(p)p.catch(()=>{})})});
+document.querySelectorAll('.vcard').forEach(b=>b.addEventListener('click',()=>{const w=b.parentElement,f=document.createElement('iframe');f.src='https://drive.google.com/file/d/'+b.dataset.id+'/preview';f.title=b.dataset.t;f.allow='autoplay; fullscreen';f.allowFullscreen=true;w.replaceChildren(f)}));
 </script>
 </body>
 </html>
